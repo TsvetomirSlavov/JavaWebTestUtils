@@ -1,26 +1,28 @@
 package co.com.calc.jbehave;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.glassfish.grizzly.http.server.HttpServer;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.runner.RunWith;
 
 import co.com.calc.steps.CalculadoraSteps;
 import co.com.calc.web.test.Main;
 import co.com.sura.webTest.PhantomJSConfig;
+import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
 
+@RunWith(JUnitReportingRunner.class)
 public class TestsConfig extends PhantomJSConfig {
 
 	private Pages pages = new Pages(driverProvider);
-	private HttpServer server;
 	
 	
-	@Before
-	public void setup()
+	
+	
+	public static void setup() throws IOException
 	{
-		server = Main.startServer();
+		System.out.println("Before class");
+		Main.startServer();
 	}
 	
 	
@@ -38,9 +40,9 @@ public class TestsConfig extends PhantomJSConfig {
 		return "D:\\Utilidades\\phantomjs-1.9.2\\phantomjs.exe";
 	}
 	
-	@After
-	public void tearDown() throws Exception {
-		server.stop();
+	
+	public static void tearDown() throws Exception {
+		Main.stopServer();
 	}
 
 	

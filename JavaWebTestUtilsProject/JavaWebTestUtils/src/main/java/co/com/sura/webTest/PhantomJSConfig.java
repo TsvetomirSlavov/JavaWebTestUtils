@@ -54,7 +54,7 @@ public abstract class PhantomJSConfig extends JUnitStories{
 	}
 	
 	@Override
-	protected List<String> storyPaths() {
+	public List<String> storyPaths() {
 		return new StoryFinder().findPaths(
 				CodeLocations.codeLocationFromPath("src/test/resources"),
 				"**/*.story", "");

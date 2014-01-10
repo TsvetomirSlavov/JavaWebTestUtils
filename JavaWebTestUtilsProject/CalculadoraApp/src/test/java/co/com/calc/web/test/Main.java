@@ -15,12 +15,15 @@ import java.net.URI;
 public class Main {
     // Base URI the Grizzly HTTP server will listen on
     public static final String BASE_URI = "http://localhost:8080/Calculadora/";
+    
+    private static HttpServer gobalServer;
 
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
      * @return Grizzly HTTP server.
+     * @throws IOException 
      */
-    public static HttpServer startServer() {
+    public static HttpServer startServer() throws IOException {
         // create a resource config that scans for JAX-RS resources and providers
         // in com.example package
         final ResourceConfig rc = new ResourceConfig().packages("co.com.calc.web");
@@ -32,8 +35,17 @@ public class Main {
         HttpServer server = GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc); 
         server.getServerConfiguration().addHttpHandler(
 		        new StaticHttpHandler("src/main/webapp/"), "/webapp");
+        
+        server.start();
+        gobalServer = server;
         return server;
     }
+    
+    public static void stopServer() {
+    	gobalServer.stop();
+    }
+    
+    
 
     /**
      * Main method.

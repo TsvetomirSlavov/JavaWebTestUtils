@@ -1,0 +1,6 @@
+<story path="co/com/calc/spec/autenticacion.story" title="Flujo ingreso usuario story">
+<scenario keyword="Scenario:" title="Ingreso a calculadora sin usuario">
+<step outcome="successful">Given ingreso a la pagina principal de la calculadora</step>
+<step outcome="successful">Then deberia ver un banner de bienvenida a calculadora</step>
+</scenario>
+</story>
