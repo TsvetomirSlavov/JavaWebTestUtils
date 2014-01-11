@@ -35,10 +35,7 @@ public class TestsConfig extends PhantomJSConfig {
 	
 	
 
-	@Override
-	protected String getPhantomJSPath() {
-		return "D:\\Utilidades\\phantomjs-1.9.2\\phantomjs.exe";
-	}
+	
 	
 	
 	public static void tearDown() throws Exception {

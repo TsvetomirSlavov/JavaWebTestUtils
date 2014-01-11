@@ -25,7 +25,7 @@ import com.google.common.util.concurrent.MoreExecutors;
 
 public abstract class PhantomJSConfig extends JUnitStories{
 	
-	protected WebDriverProvider driverProvider = PhantomJSDelegateWebDriverProvider.getDriver(getPhantomJSPath());
+	protected WebDriverProvider driverProvider = PhantomJSDelegateWebDriverProvider.getDriverWithJsDirverOnPath();
 		
 	protected WebDriverSteps lifecycleSteps = new PerStoriesWebDriverSteps(driverProvider);
 	
@@ -40,7 +40,7 @@ public abstract class PhantomJSConfig extends JUnitStories{
 		configuredEmbedder().useExecutorService(MoreExecutors.sameThreadExecutor());
 	}
 	
-	protected abstract String getPhantomJSPath();
+	
 	protected abstract List<Object> getWebSteps();
 	
 	@Override

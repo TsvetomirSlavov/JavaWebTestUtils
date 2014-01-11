@@ -15,22 +15,30 @@ public class PhantomJSDelegateWebDriverProvider extends DelegatingWebDriverProvi
 		this.phantomJSDriverPath = phantomJSDriverPath;
 	}
 	
-	public static PhantomJSDelegateWebDriverProvider getDriver(String phantomJSDriverPath){
-		return new PhantomJSDelegateWebDriverProvider(phantomJSDriverPath);
-		
+	public static PhantomJSDelegateWebDriverProvider getDriverWithPath(String phantomJSDriverPath){
+		return new PhantomJSDelegateWebDriverProvider(phantomJSDriverPath);		
 	}
+
+	public static PhantomJSDelegateWebDriverProvider getDriverWithJsDirverOnPath(){
+		return new PhantomJSDelegateWebDriverProvider("");		
+	}
+
+
+
+
 
 	public void initialize() {
 		DesiredCapabilities capabilities = DesiredCapabilities
 				.internetExplorer();
 		capabilities.setJavascriptEnabled(true);
 		capabilities.setCapability("takesScreenshot", true);
-		capabilities.setCapability(
-						PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-						phantomJSDriverPath);						
+		if (phantomJSDriverPath != "") {
+			capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, 
+				phantomJSDriverPath);		
+		}				
 
 		PhantomJSDriver driver = new PhantomJSDriver(capabilities); 
-		//Por custiones del PhantomJS se debe auentar el tamaño de la ventana para que los 
+		//Por custiones del PhantomJS se debe auentar el tamanho de la ventana para que los 
 		//elementos sean visibles. Sin esto, fallan algunas aplicaciones
 		aumentarTamanoDeVentanaEnPhantonJS(driver);
 		System.out.println("cargo el driver=" + driver);
