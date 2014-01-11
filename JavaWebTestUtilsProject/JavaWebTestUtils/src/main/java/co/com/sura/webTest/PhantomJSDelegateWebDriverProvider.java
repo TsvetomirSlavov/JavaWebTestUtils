@@ -28,14 +28,7 @@ public class PhantomJSDelegateWebDriverProvider extends DelegatingWebDriverProvi
 
 
 	public void initialize() {
-		DesiredCapabilities capabilities = DesiredCapabilities
-				.internetExplorer();
-		capabilities.setJavascriptEnabled(true);
-		capabilities.setCapability("takesScreenshot", true);
-		if (phantomJSDriverPath != "") {
-			capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, 
-				phantomJSDriverPath);		
-		}				
+		DesiredCapabilities capabilities = createDesiredCapabilities();				
 
 		PhantomJSDriver driver = new PhantomJSDriver(capabilities); 
 		//Por custiones del PhantomJS se debe auentar el tamanho de la ventana para que los 
@@ -44,6 +37,18 @@ public class PhantomJSDelegateWebDriverProvider extends DelegatingWebDriverProvi
 		System.out.println("cargo el driver=" + driver);
 		delegate.set(driver);
 		
+	}
+
+	protected DesiredCapabilities createDesiredCapabilities() {
+		DesiredCapabilities capabilities = DesiredCapabilities
+				.internetExplorer();
+		capabilities.setJavascriptEnabled(true);
+		capabilities.setCapability("takesScreenshot", true);
+		if (phantomJSDriverPath != "") {
+			capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, 
+				phantomJSDriverPath);		
+		}
+		return capabilities;
 	}
 	
 	private void aumentarTamanoDeVentanaEnPhantonJS(PhantomJSDriver driver) {
