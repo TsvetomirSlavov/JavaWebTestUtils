@@ -3,12 +3,13 @@ package co.com.sura.webTest;
 import org.jbehave.web.selenium.DelegatingWebDriverProvider;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class PhantomJSDelegateWebDriverProvider extends DelegatingWebDriverProvider {
 	
 	private String phantomJSDriverPath;
+	
+	private DesiredCapabilities capabilities = null;
 	
 	private PhantomJSDelegateWebDriverProvider(String phantomJSDriverPath) 
 	{
@@ -28,7 +29,7 @@ public class PhantomJSDelegateWebDriverProvider extends DelegatingWebDriverProvi
 
 
 	public void initialize() {
-		DesiredCapabilities capabilities = createDesiredCapabilities();				
+		DesiredCapabilities capabilities = this.capabilities;				
 
 		PhantomJSDriver driver = new PhantomJSDriver(capabilities); 
 		//Por custiones del PhantomJS se debe auentar el tamanho de la ventana para que los 
@@ -39,16 +40,8 @@ public class PhantomJSDelegateWebDriverProvider extends DelegatingWebDriverProvi
 		
 	}
 
-	protected DesiredCapabilities createDesiredCapabilities() {
-		DesiredCapabilities capabilities = DesiredCapabilities
-				.internetExplorer();
-		capabilities.setJavascriptEnabled(true);
-		capabilities.setCapability("takesScreenshot", true);
-		if (phantomJSDriverPath != "") {
-			capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, 
-				phantomJSDriverPath);		
-		}
-		return capabilities;
+	public void setDesiredCapabilities(DesiredCapabilities capabilities) {
+		this.capabilities = capabilities;
 	}
 	
 	private void aumentarTamanoDeVentanaEnPhantonJS(PhantomJSDriver driver) {

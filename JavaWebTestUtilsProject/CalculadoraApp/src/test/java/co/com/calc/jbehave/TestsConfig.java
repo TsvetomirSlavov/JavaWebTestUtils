@@ -16,9 +16,6 @@ public class TestsConfig extends PhantomJSConfig {
 
 	private Pages pages = new Pages(driverProvider);
 	
-	
-	
-	
 	public static void setup() throws IOException
 	{
 		System.out.println("Before class");
@@ -34,10 +31,8 @@ public class TestsConfig extends PhantomJSConfig {
 	}
 	
 	
+	
 
-	
-	
-	
 	public static void tearDown() throws Exception {
 		Main.stopServer();
 	}

@@ -20,6 +20,8 @@ import org.jbehave.web.selenium.SeleniumContext;
 import org.jbehave.web.selenium.SeleniumStepMonitor;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.jbehave.web.selenium.WebDriverSteps;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import com.google.common.util.concurrent.MoreExecutors;
 
@@ -35,6 +37,8 @@ public abstract class PhantomJSConfig extends JUnitStories{
 	
 	protected Configuration configuration = configuration();
 
+	private String phantomJSDriverPath = "";
+
 	
 	public PhantomJSConfig() {		
 		configuredEmbedder().useExecutorService(MoreExecutors.sameThreadExecutor());
@@ -42,7 +46,10 @@ public abstract class PhantomJSConfig extends JUnitStories{
 	
 	protected WebDriverProvider getWebDriver()
 	{
-		return PhantomJSDelegateWebDriverProvider.getDriverWithJsDirverOnPath();
+		PhantomJSDelegateWebDriverProvider driverProvider = PhantomJSDelegateWebDriverProvider.getDriverWithJsDirverOnPath();
+		DesiredCapabilities capabilities = createDesiredCapabilites();
+		driverProvider.setDesiredCapabilities(capabilities);
+		return driverProvider;
 	}
 	
 	
@@ -88,6 +95,20 @@ public abstract class PhantomJSConfig extends JUnitStories{
 		} else {
 			return configuration;
 		}
+	}
+
+	protected DesiredCapabilities createDesiredCapabilites() {
+		DesiredCapabilities capabilities = DesiredCapabilities
+				.internetExplorer();
+		capabilities.setJavascriptEnabled(true);
+		capabilities.setCapability("takesScreenshot", true);
+		if (phantomJSDriverPath  != "") {
+			capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, 
+				phantomJSDriverPath);		
+		}
+		return capabilities;
+		
+		
 	}
 
 	
