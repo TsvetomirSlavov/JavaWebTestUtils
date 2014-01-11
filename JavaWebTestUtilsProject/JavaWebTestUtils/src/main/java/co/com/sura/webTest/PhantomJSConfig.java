@@ -46,9 +46,8 @@ public abstract class PhantomJSConfig extends JUnitStories{
 	
 	protected WebDriverProvider getWebDriver()
 	{
-		PhantomJSDelegateWebDriverProvider driverProvider = PhantomJSDelegateWebDriverProvider.getDriverWithJsDirverOnPath();
 		DesiredCapabilities capabilities = createDesiredCapabilites();
-		driverProvider.setDesiredCapabilities(capabilities);
+		PhantomJSDelegateWebDriverProvider driverProvider = PhantomJSDelegateWebDriverProvider.createDriverProvider(capabilities);
 		return driverProvider;
 	}
 	
