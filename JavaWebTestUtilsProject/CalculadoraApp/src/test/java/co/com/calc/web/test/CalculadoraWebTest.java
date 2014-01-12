@@ -18,13 +18,15 @@ public class CalculadoraWebTest {
 
 	private HttpServer server;
 	private WebTarget target;
+	public static final String SERVER_URL = "http://localhost:8080/calculadora";
 
 	@Before
 	public void setUp() throws Exception {
-		server = WebServer.startServerWithJaxWsResources("co.com.calc.web");
+		
+		server = WebServer.startServerWithJaxWsResources(SERVER_URL,"co.com.calc.web");
 
 		Client c = ClientBuilder.newClient();
-		target = c.target(WebServer.BASE_URI);
+		target = c.target(WebServer.getUrl());
 	}
 
 	@After

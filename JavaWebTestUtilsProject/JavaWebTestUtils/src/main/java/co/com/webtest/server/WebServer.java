@@ -14,9 +14,10 @@ import java.net.URI;
  */
 public class WebServer {
 	// Base URI the Grizzly HTTP server will listen on
-	public static final String BASE_URI = "http://localhost:8080/Calculadora/";
+	
 
 	private static HttpServer gobalServer;
+	private static String base_url;
 
 	/**
 	 * Starts Grizzly HTTP server exposing JAX-RS resources defined in this
@@ -25,28 +26,33 @@ public class WebServer {
 	 * @return Grizzly HTTP server.
 	 * @throws IOException
 	 */
-	public static HttpServer startServer() throws IOException {
+	public static HttpServer startServer(String url) throws IOException {
 		
-		final ResourceConfig rc = new ResourceConfig().packages();
-		return startServerInt(rc);
+		final ResourceConfig rc = new ResourceConfig().packages();	
+		return startServerInt(url, rc);
 	}
 
-	public static HttpServer startServerWithJaxWsResources(String... jaxWsPackages) throws IOException {
+	public static HttpServer startServerWithJaxWsResources(String url, String... jaxWsPackages) throws IOException {
 		final ResourceConfig rc = new ResourceConfig().packages(jaxWsPackages);
-		return startServerInt(rc);
+		return startServerInt(url, rc);
 
 	}
 
-	public static HttpServer startServerInt(final ResourceConfig rc)
-			throws IOException {
+	public static HttpServer startServerInt(String url, ResourceConfig rc)
+			throws IOException {	
+		base_url = url;
 		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(
-				URI.create(BASE_URI), rc);
+				URI.create(base_url), rc);
 		server.getServerConfiguration().addHttpHandler(
 				new StaticHttpHandler("src/main/webapp/"), "/webapp");
 
 		server.start();
 		gobalServer = server;
 		return server;
+	}
+	
+	public static String getUrl() {
+		return base_url;
 	}
 
 	public static void stopServer() {
@@ -61,11 +67,12 @@ public class WebServer {
 	 */
 	public static void main(String[] args) throws IOException {
 		System.out.println("Corriendo en " + System.getProperty("user.dir"));
-		final HttpServer server = startServer();
+		String url = "http://localhost:8080/";
+		final HttpServer server = startServer(url);
 		System.out.println(String.format(
 				"Jersey app started with WADL available at "
 						+ "%sapplication.wadl\nHit enter to stop it...",
-				BASE_URI));
+				url));
 		System.in.read();
 		server.stop();
 	}

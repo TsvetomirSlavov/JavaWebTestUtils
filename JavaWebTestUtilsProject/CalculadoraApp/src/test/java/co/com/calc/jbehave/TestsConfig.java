@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.runner.RunWith;
 
 import co.com.calc.steps.CalculadoraSteps;
+import co.com.calc.web.test.CalculadoraWebTest;
 import co.com.webtest.config.PhantomJSConfig;
 import co.com.webtest.server.WebServer;
 import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
@@ -18,7 +19,7 @@ public class TestsConfig extends PhantomJSConfig {
 	
 	public static void setup() throws IOException
 	{		
-		WebServer.startServer();
+		WebServer.startServer(CalculadoraWebTest.SERVER_URL);
 	}
 	
 	
