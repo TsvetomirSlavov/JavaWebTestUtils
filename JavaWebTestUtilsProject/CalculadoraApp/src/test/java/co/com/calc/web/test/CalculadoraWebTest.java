@@ -11,6 +11,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import co.com.webtest.server.WebServer;
+
 
 public class CalculadoraWebTest {
 
@@ -19,10 +21,10 @@ public class CalculadoraWebTest {
 
 	@Before
 	public void setUp() throws Exception {
-		server = Main.startServer();
+		server = WebServer.startServer();
 
 		Client c = ClientBuilder.newClient();
-		target = c.target(Main.BASE_URI);
+		target = c.target(WebServer.BASE_URI);
 	}
 
 	@After

@@ -1,4 +1,4 @@
-package co.com.calc.web.test;
+package co.com.webtest.server;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.grizzly.http.server.StaticHttpHandler;
@@ -12,7 +12,7 @@ import java.net.URI;
  * Main class.
  *
  */
-public class Main {
+public class WebServer {
     // Base URI the Grizzly HTTP server will listen on
     public static final String BASE_URI = "http://localhost:8080/Calculadora/";
     
