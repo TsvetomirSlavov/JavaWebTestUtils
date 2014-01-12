@@ -1,4 +1,4 @@
-package co.com.sura.webTest;
+package co.com.webtest.config;
 
 import org.jbehave.web.selenium.DelegatingWebDriverProvider;
 import org.openqa.selenium.Dimension;

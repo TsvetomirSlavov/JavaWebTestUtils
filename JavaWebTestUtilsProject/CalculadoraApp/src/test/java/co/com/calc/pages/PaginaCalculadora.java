@@ -2,7 +2,7 @@ package co.com.calc.pages;
 
 import org.jbehave.web.selenium.WebDriverProvider;
 
-import co.com.sura.webTest.AbstractPage;
+import co.com.webtest.config.AbstractPage;
 
 public class PaginaCalculadora extends AbstractPage {
 	

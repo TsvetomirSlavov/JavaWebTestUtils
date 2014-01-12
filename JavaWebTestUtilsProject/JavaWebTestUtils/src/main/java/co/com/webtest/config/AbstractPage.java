@@ -1,4 +1,4 @@
-package co.com.sura.webTest;
+package co.com.webtest.config;
 
 import java.util.List;
 import java.util.Set;

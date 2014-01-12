@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 
 import co.com.calc.steps.CalculadoraSteps;
 import co.com.calc.web.test.Main;
-import co.com.sura.webTest.PhantomJSConfig;
+import co.com.webtest.config.PhantomJSConfig;
 import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
 
 @RunWith(JUnitReportingRunner.class)
