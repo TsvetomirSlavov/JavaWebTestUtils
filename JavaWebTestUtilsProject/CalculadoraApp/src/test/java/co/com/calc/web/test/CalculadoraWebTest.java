@@ -21,7 +21,7 @@ public class CalculadoraWebTest {
 
 	@Before
 	public void setUp() throws Exception {
-		server = WebServer.startServer();
+		server = WebServer.startServerWithJaxWsResources("co.com.calc.web");
 
 		Client c = ClientBuilder.newClient();
 		target = c.target(WebServer.BASE_URI);
