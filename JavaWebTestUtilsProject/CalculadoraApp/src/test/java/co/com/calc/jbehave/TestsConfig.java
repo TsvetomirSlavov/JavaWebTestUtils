@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.junit.runner.RunWith;
 
-import co.com.calc.steps.BusquedaGoogleSteps;
+
 import co.com.calc.steps.CalculadoraSteps;
 import co.com.calc.web.test.CalculadoraWebTest;
 import co.com.webtest.config.IEConfig;
@@ -27,8 +27,7 @@ public class TestsConfig extends IEConfig {
 	@Override
 	protected List<Object> getWebSteps() {
 		List<Object> steps = new ArrayList<Object>();		
-		steps.add(new CalculadoraSteps(pages));
-		steps.add(new BusquedaGoogleSteps(pages));
+		steps.add(new CalculadoraSteps(pages));		
 		return steps;
 	}
 	
