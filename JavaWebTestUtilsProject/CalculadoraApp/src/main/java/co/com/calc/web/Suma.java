@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 public class Suma {
 	
 	@GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     public String suma(@QueryParam("sumando1") int sumando1, @QueryParam("sumando2") int sumando2) {	
         return "3";
     }

@@ -53,10 +53,10 @@ public class CalculadoraSteps {
 		
 	}
 
-	@Then("debo ver el mensaje Bienvenido Jubel")
-	@Pending
-	public void thenDeboVerElMensajeBienvenidoJubel() {
-	  // PENDING
+	@Then("debo ver el mensaje $mensaje")
+	public void thenDeboVerElMensaje(String mensaje) {
+		PaginaCalculadora calculadora = pages.getPaginaCalculadora();
+		assertTrue(calculadora.contieneSaludoPersonalizado(mensaje));
 	}
 	
 	

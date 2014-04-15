@@ -36,4 +36,9 @@ public class PaginaCalculadora extends AbstractPage {
 		
 	}
 
+	public boolean contieneSaludoPersonalizado(String mensaje) {
+		return getPageSource().contains(mensaje);
+		
+	}
+
 }
