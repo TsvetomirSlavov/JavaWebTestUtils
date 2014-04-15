@@ -7,7 +7,9 @@ import java.io.IOException;
 import org.jbehave.core.annotations.AfterStories;
 import org.jbehave.core.annotations.BeforeStories;
 import org.jbehave.core.annotations.Given;
+import org.jbehave.core.annotations.Pending;
 import org.jbehave.core.annotations.Then;
+import org.jbehave.core.annotations.When;
 
 import co.com.calc.jbehave.Pages;
 import co.com.calc.jbehave.TestsConfig;
@@ -41,6 +43,20 @@ public class CalculadoraSteps {
 		assertTrue(calculadora.contieneBienvenida());
 		
 	  
+	}
+	
+	@When("ingreso el nombre $nombre")
+	public void whenIngresoElNombre(String nombre) {
+		PaginaCalculadora calculadora = pages.getPaginaCalculadora();
+		calculadora.ingresarNombreUsuario(nombre);
+	  
+		
+	}
+
+	@Then("debo ver el mensaje Bienvenido Jubel")
+	@Pending
+	public void thenDeboVerElMensajeBienvenidoJubel() {
+	  // PENDING
 	}
 	
 	
