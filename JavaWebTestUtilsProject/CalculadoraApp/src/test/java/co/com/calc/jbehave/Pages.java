@@ -5,6 +5,7 @@ import org.jbehave.web.selenium.WebDriverProvider;
 import co.com.calc.pages.PaginaCalculadora;
 import co.com.calc.pages.PaginaGoogle;
 import co.com.calc.pages.PaginaResultadoGoogle;
+import co.com.calc.pages.ServicioAmazon;
 
 
 public class Pages {
@@ -15,6 +16,7 @@ public class Pages {
 	private PaginaCalculadora paginaCalculadora;
 	private PaginaGoogle paginaGoogle;
 	private PaginaResultadoGoogle paginaResultadoGoogle;
+	private ServicioAmazon servicioAmazon;
 
 	
 
@@ -49,7 +51,12 @@ public class Pages {
 		return paginaResultadoGoogle;
 	}
 	
-
+	public ServicioAmazon getServicioAmazon(){
+		if(servicioAmazon == null){
+			servicioAmazon = new ServicioAmazon(provider);
+		}
+		return servicioAmazon;
+	}
 
 	
 	

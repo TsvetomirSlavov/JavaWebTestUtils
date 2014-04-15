@@ -4,11 +4,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ws.rs.core.UriBuilder;
+
 import org.junit.runner.RunWith;
 
 import co.com.calc.steps.BusquedaGoogleSteps;
 import co.com.calc.steps.CalculadoraSteps;
-import co.com.calc.web.test.CalculadoraWebTest;
+import co.com.calc.steps.AmazonSteps;
 import co.com.webtest.config.PhantomJSConfig;
 import co.com.webtest.server.WebServer;
 import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
@@ -20,15 +22,16 @@ public class TestsConfig extends PhantomJSConfig {
 	
 	public static void setup() throws IOException
 	{		
-		WebServer.startServer(CalculadoraWebTest.SERVER_URL);
+		WebServer.startServer(UriBuilder.fromPath("http://localhost:8080/").build());
 	}
 	
 	
 	@Override
 	protected List<Object> getWebSteps() {
 		List<Object> steps = new ArrayList<Object>();		
-		steps.add(new CalculadoraSteps(pages));
-		steps.add(new BusquedaGoogleSteps(pages));
+//		steps.add(new CalculadoraSteps(pages));
+//		steps.add(new BusquedaGoogleSteps(pages));
+		steps.add(new AmazonSteps(pages));
 		return steps;
 	}
 	
