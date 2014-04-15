@@ -45,6 +45,9 @@ public class WebServer {
 	 */
 	public static HttpServer startServer(URI url) throws IOException {
 
+		if (globalServer != null && globalServer.isStarted())
+			return globalServer;
+
 		System.out.println("Starting grizzly...");
 
 		// Create HttpServer and register dummy "not found" HttpHandler
@@ -99,7 +102,8 @@ public class WebServer {
 	}
 
 	public static void stopServer() {
-		globalServer.stop();
+		if (globalServer != null && globalServer.isStarted())
+			globalServer.stop();
 	}
 
 	/**
