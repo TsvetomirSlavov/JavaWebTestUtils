@@ -9,12 +9,12 @@ import org.junit.runner.RunWith;
 import co.com.calc.steps.BusquedaGoogleSteps;
 import co.com.calc.steps.CalculadoraSteps;
 import co.com.calc.web.test.CalculadoraWebTest;
-import co.com.webtest.config.PhantomJSConfig;
+import co.com.webtest.config.IEConfig;
 import co.com.webtest.server.WebServer;
 import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
 
 @RunWith(JUnitReportingRunner.class)
-public class TestsConfig extends PhantomJSConfig {
+public class TestsConfig extends IEConfig {
 
 	private Pages pages = new Pages(driverProvider);
 	
