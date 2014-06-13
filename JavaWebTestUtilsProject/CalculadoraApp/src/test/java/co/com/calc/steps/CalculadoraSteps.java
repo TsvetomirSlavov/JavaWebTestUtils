@@ -10,7 +10,7 @@ import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 
 import co.com.calc.jbehave.Pages;
-import co.com.calc.jbehave.TestsConfig;
+import co.com.calc.jbehave.TestsConfigIE;
 import co.com.calc.pages.PaginaCalculadora;
 
 public class CalculadoraSteps {
@@ -26,7 +26,7 @@ public class CalculadoraSteps {
 	@BeforeStories
 	public void setup() throws IOException
 	{
-		TestsConfig.setup();
+		TestsConfigIE.setup();
 		
 	}
 	
@@ -47,7 +47,7 @@ public class CalculadoraSteps {
 	@AfterStories
 	public void tearDown() throws Exception
 	{
-		TestsConfig.tearDown();
+		TestsConfigIE.tearDown();
 		
 	}
 	

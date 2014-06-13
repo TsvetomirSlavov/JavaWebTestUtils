@@ -14,7 +14,7 @@ import co.com.webtest.server.WebServer;
 import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
 
 @RunWith(JUnitReportingRunner.class)
-public class TestsConfig extends IEConfig {
+public class TestsConfigIE extends IEConfig {
 
 	private Pages pages = new Pages(driverProvider);
 	
