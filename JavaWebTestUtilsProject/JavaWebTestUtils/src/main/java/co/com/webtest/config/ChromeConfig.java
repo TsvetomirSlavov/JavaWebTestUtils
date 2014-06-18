@@ -20,6 +20,7 @@ import org.jbehave.web.selenium.SeleniumContext;
 import org.jbehave.web.selenium.SeleniumStepMonitor;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.jbehave.web.selenium.WebDriverSteps;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -95,18 +96,25 @@ public abstract class ChromeConfig extends JUnitStories{
 			return configuration;
 		}
 	}
-
+	
+	protected ChromeOptions createChromeOptions(){
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("test-type");
+		return options;
+	}
+	
 	protected DesiredCapabilities createDesiredCapabilites() {
+		
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		capabilities.setJavascriptEnabled(true);
 		capabilities.setCapability("takesScreenshot", true);
+		capabilities.setCapability(ChromeOptions.CAPABILITY,createChromeOptions());
+		
 		if (chromeDriverPath  != "") {
 			capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, 
 				chromeDriverPath);		
 		}
 		return capabilities;
-		
-		
 	}
 
 	

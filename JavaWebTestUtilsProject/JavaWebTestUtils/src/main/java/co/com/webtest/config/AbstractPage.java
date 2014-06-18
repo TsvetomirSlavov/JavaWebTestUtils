@@ -1,8 +1,11 @@
 package co.com.webtest.config;
 
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
 import org.jbehave.web.selenium.WebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.openqa.selenium.Alert;
@@ -12,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -227,6 +231,15 @@ public class AbstractPage extends WebDriverPage {
 		 return findElement(By.partialLinkText(linkText)).isDisplayed(); 
 	 }
 	 
+	 public boolean validarElementoVisibleByCssSelector(String selector){
+		 return findElement(By.cssSelector(selector)).isDisplayed();
+	 }
+	 
+	 public String getTextoElementoByCssSelector(String selector){
+		 WebElement element = findElement(By.cssSelector(selector));
+		 return element.getText();
+	 }
+	 
 	public boolean existsLinkWithText(String value) {
 		boolean retorno = true;
 		try {
@@ -237,6 +250,100 @@ public class AbstractPage extends WebDriverPage {
 		return retorno;
 	}
 	
+	public void asignarValorInputByName(String name,String value){
+		WebElement input = findElement(By.name(name));
+		input.clear();
+		input.sendKeys(value);
+	}
 	
+	public String getValorInputByName(String name) {
+		WebElement input = findElement(By.name(name));
+		return input.getAttribute("value");
+	}
+	
+	private void clickInputOptionByNameValue(String name, String value) {
+		List<WebElement> inputOptionList = findElements(By.name(name));
+		for (Iterator iterator = inputOptionList.iterator(); iterator.hasNext();) {
+			WebElement element = (WebElement) iterator.next();
+			if(element.getAttribute("value").equalsIgnoreCase(value)){
+				element.click();
+			}
+			
+		}
+	}
+	
+	private boolean isOptionValueSelected(String name, String value) {
+		List<WebElement> inputOptionList = findElements(By.name(name));
+		for (Iterator iterator = inputOptionList.iterator(); iterator.hasNext();) {
+			WebElement element = (WebElement) iterator.next();
+			if(element.getAttribute("value").equals(value)){
+				return element.isSelected();
+			}
+		}
+		return false;
+	}
+	
+	public void clickMultipleCheckBoxesByNameValues(String name,String[] values) {
+		List<WebElement> checkboxList = findElements(By.name(name));
+		String value="";
+		for (Iterator iterator = checkboxList.iterator(); iterator.hasNext();) {
+			WebElement element = (WebElement) iterator.next();
+			value = element.getAttribute("value");
+			if(Arrays.asList(values).contains(value)){
+				element.click();
+			}
+		}
+	}
+	
+	public void clickCheckBoxByNameValue(String name, String value) {
+		clickInputOptionByNameValue(name, value);
+	}
+	
+	public boolean isCheckboxValueSelected(String name, String value) {
+		return isOptionValueSelected(name, value);
+	}
 
+	public void adicionarValorInputByName(String name, String value) {
+		WebElement input = findElement(By.name(name));
+		input.click();
+		input.sendKeys(value);
+	}
+	
+	public void clickRadioButtonByNameValue(String name, String value) {
+		clickInputOptionByNameValue(name, value);
+	}
+
+	public boolean isRadioButtonValueSelected(String name, String value) {
+		return isOptionValueSelected(name, value);
+	}
+	
+	public void selectOptionByNameAndVisibleText(String name, String visibleText) {
+		Select selectBox = new Select(findElement(By.name(name)));
+		selectBox.selectByVisibleText(visibleText);
+	}
+	
+	public String getSelectedOptionValueByName(String name) {
+		Select selectBox = new Select(findElement(By.name(name)));
+		return selectBox.getFirstSelectedOption().getText();
+	}
+	
+	public String getSelectedOptionValueById(String id) {
+		Select selectBox = new Select(findElement(By.id(id)));
+		return selectBox.getFirstSelectedOption().getText();
+	}
+	
+	public void selectOptionByNameAndValue(String name, String value) {
+		Select selectBox = new Select(findElement(By.name(name)));
+		selectBox.selectByValue(value);
+	}
+	
+	public void clicButtonById(String id) {
+		WebElement button = findElement(By.id(id));
+		button.click();
+	}
+	
+	public void clicButtonByName(String name) {
+		WebElement button = findElement(By.name(name));
+		button.click();
+	}
 }

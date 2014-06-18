@@ -11,14 +11,12 @@ repositories {
     mavenCentral()
 }
 
-
-
 dependencies {
     testCompile  'junit:junit:4.11'
     testCompile  'org.jbehave:jbehave-core:3.9.2'
     testCompile	 'org.jbehave.web:jbehave-web-selenium:3.5.5'
-	testCompile  'de.codecentric:jbehave-junit-runner:1.0.2'
-	compile  'org.glassfish.jersey.core:jersey-server:2.4.1'	
+	testCompile  'de.codecentric:jbehave-junit-runner:1.1.0'
+	compile  'org.glassfish.jersey.core:jersey-server:2.9.1'
 	compile project(':Calculadora');
 	testCompile project(':JavaWebTestUtils')
 }

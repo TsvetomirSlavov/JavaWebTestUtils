@@ -35,7 +35,6 @@ public class CalculadoraWebTest {
 	}
 
 	
-	
 	@Test
 	public void sumar_1y2_debe_dar_3() {
 		WebTarget targetSuma = target.path("Suma").queryParam("sumando1", 1).queryParam("sumando2", 2);
@@ -43,11 +42,4 @@ public class CalculadoraWebTest {
 		assertEquals("3", responseMsg);
 	}
 	
-
-	
-
-	
-	
-	
-
 }

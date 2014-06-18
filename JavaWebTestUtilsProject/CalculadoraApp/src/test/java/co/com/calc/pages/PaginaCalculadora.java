@@ -12,7 +12,6 @@ public class PaginaCalculadora extends AbstractPage {
 	
 	public PaginaCalculadora open(){
 		
-	
 		get("http://localhost:8080/webapp/");		
 		return this;
 	}

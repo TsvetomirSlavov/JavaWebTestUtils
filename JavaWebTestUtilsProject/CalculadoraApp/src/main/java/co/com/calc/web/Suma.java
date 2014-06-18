@@ -13,7 +13,8 @@ public class Suma {
 	@GET
     @Produces(MediaType.TEXT_PLAIN)
     public String suma(@QueryParam("sumando1") int sumando1, @QueryParam("sumando2") int sumando2) {	
-        return "3";
+        int resultado =sumando1+sumando2; 
+		return Integer.toString(resultado);
     }
 
 }

@@ -10,6 +10,7 @@ import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 
 import co.com.calc.jbehave.Pages;
+import co.com.calc.jbehave.TestsConfigChrome;
 import co.com.calc.jbehave.TestsConfigIE;
 import co.com.calc.pages.PaginaCalculadora;
 
@@ -26,8 +27,7 @@ public class CalculadoraSteps {
 	@BeforeStories
 	public void setup() throws IOException
 	{
-		TestsConfigIE.setup();
-		
+		TestsConfigChrome.setup();
 	}
 	
 	@Given("ingreso a la pagina principal de la calculadora")
@@ -47,8 +47,7 @@ public class CalculadoraSteps {
 	@AfterStories
 	public void tearDown() throws Exception
 	{
-		TestsConfigIE.tearDown();
-		
+		TestsConfigChrome.tearDown();
 	}
 	
 
