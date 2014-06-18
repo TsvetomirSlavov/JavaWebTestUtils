@@ -1,0 +1,82 @@
+
+<html>
+<head>
+<title>Example html forms - 7</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="480" border="0" align="center">
+  <tr>
+    <td height="627" colspan="2">
+      <H2>Fill-Out Form Example #7 </H2>
+      This is another fill-out form example, with 
+toggle buttons. 
+      <P>
+      <P>
+      <FORM action=index.php method=post>
+        <H3 align=left><FONT face=arial,helvetica>Best Pizza -- Internet Delivery 
+Service, Part II</FONT></H3>
+        Type in your street address: 
+        <INPUT name=address>
+         
+        <P>Type in your phone number: 
+          <INPUT name=phone>
+           
+        <P>Which toppings would you like? 
+        <P>
+        <OL>
+          <LI>
+            <INPUT type=checkbox value=pepperoni name=topping>
+             Pepperoni
+          <LI>
+            <INPUT type=checkbox value=sausage name=topping>
+             Sausage
+          <LI>
+            <INPUT type=checkbox value=anchovies name=topping>
+             Anchovies</LI>
+        </OL>
+        How 
+would you like to pay? Choose any one of the following: 
+        <P>
+        <OL>
+          <LI>
+            <INPUT type=radio CHECKED value=cash name=paymethod>
+             Cash
+          <LI>
+            <INPUT type=radio value=check name=paymethod>
+             Check
+          <LI><I>Credit card:</I> 
+            <UL>
+              <LI>
+                <INPUT type=radio value=mastercard name=paymethod>
+                 Mastercard
+              <LI>
+                <INPUT type=radio value=visa name=paymethod>
+                 Visa
+              <LI>
+                <INPUT type=radio value=americanexpress name=paymethod>
+                 American 
+    Express</LI>
+            </UL>
+          </LI>
+        </OL>
+        Would you like the driver to call before leaving 
+the store? 
+        <P>
+        <DL>
+          <DD>
+            <INPUT type=radio CHECKED value=yes name=callfirst>
+             <I>Yes</I> 
+          <DD>
+            <INPUT type=radio value=no name=callfirst>
+             <I>No</I></DD>
+        </DL>
+        To order 
+your pizza, press this button: 
+        <INPUT type=submit value="Order Pizza">
+      </FORM>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

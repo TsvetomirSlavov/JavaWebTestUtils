@@ -1,0 +1,52 @@
+
+<html>
+<head>
+<title>Example html forms - 4</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="480" border="0" align="center">
+  <tr>
+    <td height="437" colspan="2">
+      <H2>Fill-Out Form Example #4 </H2>
+      This is another fill-out form example, with 
+default values for some text entry fields and checkboxes. 
+      <P>
+      <P>
+      <FORM action=index.php method=post>
+        The 
+first text entry field, with default value "foo", goes here: 
+        <INPUT value=foo 
+name=entry1>
+         
+        <P>The second text entry field, with no default value, goes here: 
+          <INPUT 
+name=entry2>
+           
+        <P>Now, here's three checkboxes right in a row: 
+        <P>
+        <OL>
+          <LI>
+            <INPUT type=checkbox CHECKED value=activated name=box1>
+             The first 
+  checkbox, on by default. 
+          <LI>
+            <INPUT type=checkbox value=primed name=box2>
+             The second checkbox, off by 
+  default. 
+          <LI>
+            <INPUT type=checkbox CHECKED name=box3>
+             The third checkbox, on by default. 
+  </LI>
+        </OL>
+        To submit the query, press this button: 
+        <INPUT type=submit value="Submit Query">
+        <P>To reset the various form elements to their default states, press this 
+button: 
+          <INPUT type=reset value="Reset To Default Values">
+      </FORM>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
