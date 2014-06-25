@@ -1,10 +1,12 @@
 Flujo ingreso a formularios de ejemplos
+Los formularios fueron tomados de:
+http://www.websitedatabases.com/php_form_maker/html_forms/html_form_examples.html
 
 Narrative:
 Como tester
 quiero ingresar a varios formularios en HTML
 y probar cada uno de los elementos
-					 
+				 
 Scenario:  Ingreso a la pagina de HTML form Examples
 Given ingreso a la pagina principal de HTML form examples
 Then deberia ver un un titulo llamado HTML Form Examples

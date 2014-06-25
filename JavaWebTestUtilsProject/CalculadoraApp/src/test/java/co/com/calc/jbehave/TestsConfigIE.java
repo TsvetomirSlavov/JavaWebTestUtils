@@ -6,8 +6,6 @@ import java.util.List;
 
 import org.junit.runner.RunWith;
 
-
-
 import co.com.calc.steps.CalculadoraSteps;
 import co.com.calc.steps.FormulariosSteps;
 import co.com.calc.web.test.CalculadoraWebTest;
@@ -25,12 +23,11 @@ public class TestsConfigIE extends IEConfig {
 		WebServer.startServer(CalculadoraWebTest.SERVER_URL);
 	}
 	
-	
 	@Override
 	protected List<Object> getWebSteps() {
 		List<Object> steps = new ArrayList<Object>();		
-		//steps.add(new CalculadoraSteps(pages));	
-		//steps.add(new FormulariosSteps(pages));	
+		steps.add(new CalculadoraSteps(pages));	
+		steps.add(new FormulariosSteps(pages));	
 		return steps;
 	}
 

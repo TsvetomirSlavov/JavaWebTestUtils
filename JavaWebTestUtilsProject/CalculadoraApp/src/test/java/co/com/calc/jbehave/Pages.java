@@ -9,7 +9,6 @@ import co.com.calc.pages.formularios.PaginaFormularioExample2;
 import co.com.calc.pages.formularios.PaginaFormularioExample3;
 import co.com.calc.pages.formularios.PaginaFormularioExample7;
 import co.com.calc.pages.formularios.PaginaFormularioExample9;
-import co.com.calc.pages.formularios.PaginaFormulariosPpal;
 import co.com.calc.pages.formularios.PaginaFormularioExample4;
 
 
@@ -20,7 +19,6 @@ public class Pages {
 	private PaginaCalculadora paginaCalculadora;
 	private PaginaGoogle paginaGoogle;
 	private PaginaResultadoGoogle paginaResultadoGoogle;
-	private PaginaFormulariosPpal paginaPpalFormularios;
 	private PaginaFormularioExample2 paginaFormularioExample2;
 	private PaginaFormularioExample3 paginaFormularioExample3;
 	private PaginaFormularioExample4 paginaFormularioExample4;
@@ -59,13 +57,6 @@ public class Pages {
 		return paginaResultadoGoogle;
 	}
 	
-	
-	public PaginaFormulariosPpal getPaginaPpalFormularios(){
-		if(paginaPpalFormularios == null){
-			paginaPpalFormularios = new PaginaFormulariosPpal(provider);
-		}
-		return paginaPpalFormularios;
-	}
 
 	public PaginaFormularioExample2 getPaginaFormularioExample2(){
 		if(paginaFormularioExample2==null){

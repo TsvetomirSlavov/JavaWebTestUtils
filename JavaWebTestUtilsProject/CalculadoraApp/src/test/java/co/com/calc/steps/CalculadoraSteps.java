@@ -11,7 +11,6 @@ import org.jbehave.core.annotations.Then;
 
 import co.com.calc.jbehave.Pages;
 import co.com.calc.jbehave.TestsConfigChrome;
-import co.com.calc.jbehave.TestsConfigIE;
 import co.com.calc.pages.PaginaCalculadora;
 
 public class CalculadoraSteps {

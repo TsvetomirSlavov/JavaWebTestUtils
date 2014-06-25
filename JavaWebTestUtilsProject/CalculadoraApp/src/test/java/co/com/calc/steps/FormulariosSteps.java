@@ -18,7 +18,6 @@ import co.com.calc.pages.formularios.PaginaFormularioExample3;
 import co.com.calc.pages.formularios.PaginaFormularioExample4;
 import co.com.calc.pages.formularios.PaginaFormularioExample7;
 import co.com.calc.pages.formularios.PaginaFormularioExample9;
-import co.com.calc.pages.formularios.PaginaFormulariosPpal;
 
 public class FormulariosSteps {
 	Pages pages;
@@ -26,22 +25,6 @@ public class FormulariosSteps {
 
 	public FormulariosSteps(Pages pages) {
 		this.pages = pages;
-	}
-	
-	/* Scenario:  Ingreso a la pagina de HTML form Examples */
-	
-	@Given("ingreso a la pagina principal de HTML form examples")
-	public void abrirPaginaPrincipalHTMLFormExamples(){
-		PaginaFormulariosPpal ppal = pages.getPaginaPpalFormularios();
-		ppal.open();
-	}
-	
-
-	@Then("deberia ver un un titulo llamado HTML Form Examples")
-	public void thenDeberiaVerTituloHTMLFormExamples() {
-		PaginaFormulariosPpal ppal = pages.getPaginaPpalFormularios();
-		//assertTrue(ppal.validarElementoVisibleByCssSelector("h4"));
-		assertEquals("HTML Form Examples", ppal.buscarTituloH4());	
 	}
 	
 	/* Scenario: Ingresar a la pagina del ejemplo2 y llenar cajas de texto */
@@ -213,7 +196,6 @@ public class FormulariosSteps {
 	public void whenSeleccionaRealizarActividadConAnna(){
 		PaginaFormularioExample9 example9 = pages.getPaginaFormularioExample9();
 		example9.seleccionarPorId3();
-		example9.waitUntil(3000);
 	}
 	@Then ("el campo who-to-do-it-with debe tener el valor 'Anna'")
 	public void thenCampoConQuienConValorAnna(){

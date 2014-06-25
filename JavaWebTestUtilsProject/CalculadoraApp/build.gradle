@@ -21,11 +21,10 @@ dependencies {
 	testCompile project(':JavaWebTestUtils')
 }
 
+
 task customJacocoReport(type: JacocoReport){
 	executionData(test)
 	classDirectories = fileTree(dir: 'build/classes/main', include: '**/*.class')
 	sourceDirectories = fileTree(dir:'src/main/java', include: '**/*.java')
 
 }
-
-
