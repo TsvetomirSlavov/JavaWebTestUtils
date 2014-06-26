@@ -1,4 +1,4 @@
-package co.com.webtest.config;
+package co.com.webtest.config.chrome;
 
 import org.jbehave.web.selenium.DelegatingWebDriverProvider;
 import org.openqa.selenium.WebDriver;

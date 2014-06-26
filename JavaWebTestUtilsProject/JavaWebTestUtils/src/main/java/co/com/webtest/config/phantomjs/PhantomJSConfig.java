@@ -1,4 +1,4 @@
-package co.com.webtest.config;
+package co.com.webtest.config.phantomjs;
 
 import java.util.List;
 

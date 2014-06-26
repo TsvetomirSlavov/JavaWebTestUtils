@@ -1,4 +1,4 @@
-package co.com.webtest.config;
+package co.com.webtest.config.phantomjs;
 
 import org.jbehave.web.selenium.DelegatingWebDriverProvider;
 import org.openqa.selenium.Dimension;

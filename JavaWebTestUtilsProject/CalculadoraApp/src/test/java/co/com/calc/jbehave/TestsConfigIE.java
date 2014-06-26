@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 import co.com.calc.steps.CalculadoraSteps;
 import co.com.calc.steps.FormulariosSteps;
 import co.com.calc.web.test.CalculadoraWebTest;
-import co.com.webtest.config.IEConfig;
+import co.com.webtest.config.ie.IEConfig;
 import co.com.webtest.server.WebServer;
 import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
 

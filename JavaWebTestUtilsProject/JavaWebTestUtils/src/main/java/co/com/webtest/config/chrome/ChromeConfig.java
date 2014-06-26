@@ -1,9 +1,11 @@
-package co.com.webtest.config;
+package co.com.webtest.config.chrome;
 
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
+import co.com.webtest.config.AbstractConfig;
 
 
 
