@@ -5,6 +5,7 @@ import org.jbehave.web.selenium.WebDriverProvider;
 import co.com.calc.pages.PaginaCalculadora;
 import co.com.calc.pages.PaginaGoogle;
 import co.com.calc.pages.PaginaResultadoGoogle;
+import co.com.calc.pages.formularios.PaginaFormularioExample10;
 import co.com.calc.pages.formularios.PaginaFormularioExample2;
 import co.com.calc.pages.formularios.PaginaFormularioExample3;
 import co.com.calc.pages.formularios.PaginaFormularioExample7;
@@ -24,6 +25,7 @@ public class Pages {
 	private PaginaFormularioExample4 paginaFormularioExample4;
 	private PaginaFormularioExample7 paginaFormularioExample7;
 	private PaginaFormularioExample9 paginaFormularioExample9;
+	private PaginaFormularioExample10 paginaFormularioExample10;
 	
 	
 	public Pages(WebDriverProvider driverProvider) {
@@ -98,5 +100,14 @@ public class Pages {
 			paginaFormularioExample9 = new PaginaFormularioExample9(provider);
 		}
 		return paginaFormularioExample9;
+	}
+
+
+
+	public PaginaFormularioExample10 getPaginaFormularioExample10() {
+		if(paginaFormularioExample10 == null){
+			paginaFormularioExample10 = new PaginaFormularioExample10(provider);
+		}
+		return paginaFormularioExample10;
 	}
 }

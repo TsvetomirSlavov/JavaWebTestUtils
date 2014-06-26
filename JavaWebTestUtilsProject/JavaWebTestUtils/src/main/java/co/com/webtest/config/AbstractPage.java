@@ -1,5 +1,6 @@
 package co.com.webtest.config;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -345,5 +346,41 @@ public class AbstractPage extends WebDriverPage {
 	public void clicButtonByName(String name) {
 		WebElement button = findElement(By.name(name));
 		button.click();
+	}
+	
+	public void selectMultipleOptionsByNameAndVisibleText(String name,
+			List<String> opts) {
+		Select selectBox = new Select(findElement(By.name(name)));
+		
+		for (Iterator<String> iterator = opts.iterator(); iterator.hasNext();) {
+			String value = (String) iterator.next();
+			selectBox.selectByVisibleText(value);
+		}
+	}
+	
+	public List<String> getSelectedOptionsValueByName(String name) {
+		Select selectBox = new Select(findElement(By.name(name)));
+		List<WebElement> options = selectBox.getAllSelectedOptions();
+		List<String> strOpts = new ArrayList<String>();
+		for (Iterator<WebElement> iterator = options.iterator(); iterator.hasNext();) {
+			WebElement option = (WebElement) iterator.next();
+			strOpts.add(option.getText());
+		}
+		return strOpts;
+	}
+	
+	public boolean validarOpcionesSeleccionadas(String name, List<String> opts){
+		boolean selected=true;
+		List<String> options = getSelectedOptionsValueByName(name);
+		
+		for (Iterator<String> iterator = opts.iterator(); iterator.hasNext();) {
+			if(options.contains((String) iterator.next())){
+				selected &= true; 
+			}else{
+				selected &= false;
+			}
+		}
+		
+		return selected;
 	}
 }

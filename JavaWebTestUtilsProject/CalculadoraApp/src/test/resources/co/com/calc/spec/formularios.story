@@ -7,10 +7,6 @@ Como tester
 quiero ingresar a varios formularios en HTML
 y probar cada uno de los elementos
 				 
-Scenario:  Ingreso a la pagina de HTML form Examples
-Given ingreso a la pagina principal de HTML form examples
-Then deberia ver un un titulo llamado HTML Form Examples
-
 Scenario: Ingresar a la pagina del ejemplo2 y llenar cajas de texto
 Given ingreso a la pagina de ejemplo2
 When se llenan los campos de texto entry1, entry2 y entry3 con los textos prueba1, prueba2 y prueba3
@@ -54,3 +50,8 @@ When selecciona con quien hacer la actividad por id=3 que es 'Anna'
 Then el campo who-to-do-it-with debe tener el valor 'Anna'
 When clic en el boton 'Reset' por name=reset_name
 Then el campo who-to-do-it-with debe tener el valor 'Alex'
+
+Scenario: Ingresar a la página del ejemplo10 y seleccionar varios items de ropa para ponerse
+Given ingreso a la pagina de ejemplo10
+When se selecciona las opciones 'T-Shirt','Socks','Jeans' y 'Boots'
+Then los campos 'T-Shirt','Socks','Jeans' y 'Boots' deben estar seleccionados

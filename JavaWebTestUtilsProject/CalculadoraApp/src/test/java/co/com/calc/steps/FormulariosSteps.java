@@ -13,6 +13,7 @@ import org.jbehave.core.annotations.When;
 
 import co.com.calc.jbehave.Pages;
 import co.com.calc.jbehave.TestsConfigChrome;
+import co.com.calc.pages.formularios.PaginaFormularioExample10;
 import co.com.calc.pages.formularios.PaginaFormularioExample2;
 import co.com.calc.pages.formularios.PaginaFormularioExample3;
 import co.com.calc.pages.formularios.PaginaFormularioExample4;
@@ -212,5 +213,24 @@ public class FormulariosSteps {
 	public void thenCampoConQuienConValorAlex(){
 		PaginaFormularioExample9 example9 = pages.getPaginaFormularioExample9();
 		assertEquals("Alex", example9.obtenerValorCampoConQuienPorId());
+	}
+	
+	/* Scenario: Ingresar a la página del ejemplo10 y seleccionar varios items de ropa para ponerse */
+	@Given ("ingreso a la pagina de ejemplo10")
+	public void abrirPaginaEjemplo10(){
+		PaginaFormularioExample10 example10 = pages.getPaginaFormularioExample10();
+		example10.open();
+	}
+	
+	@When ("se selecciona las opciones 'T-Shirt','Socks','Jeans' y 'Boots'")
+	public void whenSeleccionaOpcionesRopa(){
+		PaginaFormularioExample10 example10 = pages.getPaginaFormularioExample10();
+		example10.seleccionarOpcionesRopa();
+	}
+	
+	@Then ("los campos 'T-Shirt','Socks','Jeans' y 'Boots' deben estar seleccionados")
+	public void thenOpcionesRopaSeleccionadas(){
+		PaginaFormularioExample10 example10 = pages.getPaginaFormularioExample10();
+		assertTrue(example10.opcionesRopaSeleccionadas());
 	}
 }
