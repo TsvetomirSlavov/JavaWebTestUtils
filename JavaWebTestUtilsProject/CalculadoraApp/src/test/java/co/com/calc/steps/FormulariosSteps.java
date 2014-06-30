@@ -3,16 +3,11 @@ package co.com.calc.steps;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.io.IOException;
-
-import org.jbehave.core.annotations.AfterStories;
-import org.jbehave.core.annotations.BeforeStories;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
 import co.com.calc.jbehave.Pages;
-import co.com.calc.jbehave.TestsConfigChrome;
 import co.com.calc.pages.formularios.PaginaFormularioExample10;
 import co.com.calc.pages.formularios.PaginaFormularioExample2;
 import co.com.calc.pages.formularios.PaginaFormularioExample3;

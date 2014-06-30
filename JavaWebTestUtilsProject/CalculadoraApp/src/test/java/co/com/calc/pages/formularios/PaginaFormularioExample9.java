@@ -1,7 +1,6 @@
 package co.com.calc.pages.formularios;
 
 import org.jbehave.web.selenium.WebDriverProvider;
-import org.openqa.selenium.WebElement;
 
 import co.com.webtest.config.AbstractPage;
 

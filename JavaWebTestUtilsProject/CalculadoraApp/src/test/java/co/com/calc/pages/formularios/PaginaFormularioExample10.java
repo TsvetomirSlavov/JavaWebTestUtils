@@ -1,13 +1,11 @@
 package co.com.calc.pages.formularios;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.jbehave.web.selenium.WebDriverProvider;
-import org.openqa.selenium.WebElement;
 
 import co.com.webtest.config.AbstractPage;
-
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
 
 public class PaginaFormularioExample10 extends AbstractPage{
 
