@@ -67,7 +67,7 @@ public class FormulariosSteps {
 		example3.seleccionarAnchoas();
 	}  
 	
-	@Then("las cajas de chequeo de Peperoni y Anchovies están seleccionadas")
+	@Then("las cajas de chequeo de Peperoni y Anchovies estan seleccionadas")
 	public void thenPeperoniYAnchoasSeleccionadas(){
 		PaginaFormularioExample3 example3= pages.getPaginaFormularioExample3();
 		assertTrue(example3.estaSeleccionadoPeperoni());
@@ -82,7 +82,7 @@ public class FormulariosSteps {
 		example3.seleccionarTodosLosIngredientes();
 	}
 	
-	@Then ("las cajas de chequeo de Peperoni, Saussage y Anchovies están seleccionadas")
+	@Then ("las cajas de chequeo de Peperoni, Saussage y Anchovies estan seleccionadas")
 	public void thenTodosLosIngredientesSeleccionados(){
 		PaginaFormularioExample3 example3 = pages.getPaginaFormularioExample3();
 		assertTrue(example3.estaSeleccionadoPeperoni());
@@ -215,7 +215,7 @@ public class FormulariosSteps {
 		assertEquals("Alex", example9.obtenerValorCampoConQuienPorId());
 	}
 	
-	/* Scenario: Ingresar a la página del ejemplo10 y seleccionar varios items de ropa para ponerse */
+	/* Scenario: Ingresar a la pagina del ejemplo10 y seleccionar varios items de ropa para ponerse */
 	@Given ("ingreso a la pagina de ejemplo10")
 	public void abrirPaginaEjemplo10(){
 		PaginaFormularioExample10 example10 = pages.getPaginaFormularioExample10();
